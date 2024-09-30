@@ -1,6 +1,6 @@
 describe('Gerenciador de Tarefas', () => {
   beforeEach(() => {
-    cy.visit('/'); // Visita a página inicial
+    cy.visit('/'); 
   });
 
   it('Deve adicionar uma nova tarefa', () => {
@@ -25,17 +25,17 @@ describe('Gerenciador de Tarefas', () => {
     cy.get('button').contains('Salvar').click();
     cy.contains('Tarefa para Excluir').should('exist');
   
-    // Encontre a tarefa e, em seguida, o botão "Deletar"
+
     cy.contains('Tarefa para Excluir')
       .parents('li')
       .find('button')
       .contains('Deletar')
       .click(); // Clica no botão "Deletar"
   
-    // Espera um pouco para garantir que a exclusão foi processada
+
     cy.wait(1000);
   
-    // Verifica se a tarefa foi removida da lista
+
     cy.contains('Tarefa para Excluir').should('not.exist');
   });  
 });
